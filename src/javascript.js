@@ -20,66 +20,82 @@ const btnRock = document.getElementById('btnRock');
 const btnPaper = document.getElementById('btnPaper');
 const btnScissors = document.getElementById('btnScissors');
 
+const textLine1 = document.getElementById('text1');
+const textLine2 = document.getElementById('text2');
+const textLine3 = document.getElementById('text3');
+const textLine4 = document.getElementById('text4');
+
+
+
 function playerChoiceRock() {
     if ((scorePlayer > 4) || (scoreComputer > 4)) {
     btnRock.removeEventListener('click', playerChoiceRock);
     btnScissors.removeEventListener('click', playerChoiceScissors);  
     btnPaper.removeEventListener('click', playerChoicePaper); 
     if (scorePlayer == scoreComputer) {
-        console.log("Game finished! It's a tie!")
+        textLine1.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
+        textLine2.textContent = "Game finished! It's a tie!"
+        textLine3.textContent = '';
+        textLine4.textContent = '';
     } else if (scorePlayer > scoreComputer) {
-        console.log("Game finished! Congratulations! You win!")
+        textLine1.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
+        textLine2.textContent = "Game finished! Congratulations! You win!"
+        textLine3.textContent = '';
+        textLine4.textContent = '';
     } else {
-        console.log("Game over! You lose! Better luck next time!")
+        textLine1.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
+        textLine2.textContent = "Game over! You lose! Better luck next time!"
+        textLine3.textContent = '';
+        textLine4.textContent = '';
     }
 } else {
-    console.log("Round: " + round)
+    textLine1.textContent = "Round: " + round
     let playerSelection = "Rock";
     let computerSelection = options[Math.floor(Math.random() * options.length)];
     if ((playerSelection === "Rock") && (computerSelection === "Paper")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("You lose! Paper beats Rock!")
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "You lose! Paper beats Rock!"
         scoreComputer++
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine2.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if (((playerSelection === "Paper") && (computerSelection === "Paper"))) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("It's a tie, so no points!")
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "It's a tie, so no points!"
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if (((playerSelection === "Scissors") && (computerSelection === "Paper"))) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("You win! Scissors beat Paper!")
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "You win! Scissors beat Paper!"
         scorePlayer++
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if ((playerSelection === "Rock") && (computerSelection === "Rock")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("It's a tie, so no points!")
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "It's a tie, so no points!"
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if ((playerSelection === "Paper") && (computerSelection === "Rock")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("You win! Paper beats Rock!")
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "You win! Paper beats Rock!"
         scorePlayer++
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if ((playerSelection === "Scissors") && (computerSelection === "Rock")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("You lose! Rock beats Scissors!")
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "You lose! Rock beats Scissors!"
         scoreComputer++
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if ((playerSelection === "Rock") && (computerSelection === "Scissors")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("You win! Rock beats Scissors!")
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "You win! Rock beats Scissors!"
         scorePlayer++
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if ((playerSelection === "Paper") && (computerSelection === "Scissors")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("You lose! Scissors beat Paper!")
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "You lose! Scissors beat Paper!"
         scoreComputer++
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if ((playerSelection === "Scissors") && (computerSelection === "Scissors")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("It's a tie, so no points!")
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "It's a tie, so no points!"
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else {
-        console.log("Something went very wrong! Check your input!")
+        textLine3.textContent = "Something went very wrong! Check your input!"
     }
     round++
 }
@@ -90,124 +106,142 @@ function playerChoicePaper() {
         btnScissors.removeEventListener('click', playerChoiceScissors);  
         btnPaper.removeEventListener('click', playerChoicePaper); 
         if (scorePlayer == scoreComputer) {
-            console.log("Game finished! It's a tie!")
+            textLine1.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
+            textLine2.textContent = "Game finished! It's a tie!"
+            textLine3.textContent = '';
+            textLine4.textContent = '';
         } else if (scorePlayer > scoreComputer) {
-            console.log("Game finished! Congratulations! You win!")
+            textLine1.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
+            textLine2.textContent = "Game finished! Congratulations! You win!"
+            textLine3.textContent = '';
+            textLine4.textContent = '';
         } else {
-            console.log("Game over! You lose! Better luck next time!")
-        }
+            textLine1.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
+            textLine2.textContent = "Game over! You lose! Better luck next time!"
+            textLine3.textContent = '';
+            textLine4.textContent = '';
+        } 
     } else {
-    console.log("Round: " + round)
+    textLine1.textContent = "Round: " + round
     let playerSelection = "Paper";
     let computerSelection = options[Math.floor(Math.random() * options.length)];
     if ((playerSelection === "Rock") && (computerSelection === "Paper")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("You lose! Paper beats Rock!")
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "You lose! Paper beats Rock!"
         scoreComputer++
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if (((playerSelection === "Paper") && (computerSelection === "Paper"))) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("It's a tie, so no points!")
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "It's a tie, so no points!"
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if (((playerSelection === "Scissors") && (computerSelection === "Paper"))) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("You win! Scissors beat Paper!")
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "You win! Scissors beat Paper!"
         scorePlayer++
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if ((playerSelection === "Rock") && (computerSelection === "Rock")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("It's a tie, so no points!")
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "It's a tie, so no points!"
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if ((playerSelection === "Paper") && (computerSelection === "Rock")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("You win! Paper beats Rock!")
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "You win! Paper beats Rock!"
         scorePlayer++
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if ((playerSelection === "Scissors") && (computerSelection === "Rock")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("You lose! Rock beats Scissors!")
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "You lose! Rock beats Scissors!"
         scoreComputer++
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if ((playerSelection === "Rock") && (computerSelection === "Scissors")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("You win! Rock beats Scissors!")
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "You win! Rock beats Scissors!"
         scorePlayer++
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if ((playerSelection === "Paper") && (computerSelection === "Scissors")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("You lose! Scissors beat Paper!")
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "You lose! Scissors beat Paper!"
         scoreComputer++
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if ((playerSelection === "Scissors") && (computerSelection === "Scissors")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("It's a tie, so no points!")
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "It's a tie, so no points!"
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else {
-        console.log("Something went very wrong! Check your input!")
+        textLine3.textContent = "Something went very wrong! Check your input!"
     }
     round++
     }
 }
 function playerChoiceScissors() {
     if ((scorePlayer > 4) || (scoreComputer > 4)) {
-    btnRock.removeEventListener('click', playerChoiceRock);
-    btnScissors.removeEventListener('click', playerChoiceScissors);  
-    btnPaper.removeEventListener('click', playerChoicePaper); 
-    if (scorePlayer == scoreComputer) {
-        console.log("Game finished! It's a tie!")
-    } else if (scorePlayer > scoreComputer) {
-        console.log("Game finished! Congratulations! You win!")
+        btnRock.removeEventListener('click', playerChoiceRock);
+        btnScissors.removeEventListener('click', playerChoiceScissors);  
+        btnPaper.removeEventListener('click', playerChoicePaper); 
+        if (scorePlayer == scoreComputer) {
+            textLine1.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
+            textLine2.textContent = "Game finished! It's a tie!"
+            textLine3.textContent = '';
+            textLine4.textContent = '';
+        } else if (scorePlayer > scoreComputer) {
+            textLine1.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
+            textLine2.textContent = "Game finished! Congratulations! You win!"
+            textLine3.textContent = '';
+            textLine4.textContent = '';
+        } else {
+            textLine1.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
+            textLine2.textContent = "Game over! You lose! Better luck next time!"
+            textLine3.textContent = '';
+            textLine4.textContent = '';
+        }
     } else {
-        console.log("Game over! You lose! Better luck next time!")
-    }
-} else {
-    console.log("Round: " + round)
+    textLine1.textContent = "Round: " + round
     let playerSelection = "Scissors";
     let computerSelection = options[Math.floor(Math.random() * options.length)];
     if ((playerSelection === "Rock") && (computerSelection === "Paper")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("You lose! Paper beats Rock!")
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "You lose! Paper beats Rock!"
         scoreComputer++
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if (((playerSelection === "Paper") && (computerSelection === "Paper"))) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("It's a tie, so no points!")
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "It's a tie, so no points!"
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if (((playerSelection === "Scissors") && (computerSelection === "Paper"))) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("You win! Scissors beat Paper!")
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "You win! Scissors beat Paper!"
         scorePlayer++
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if ((playerSelection === "Rock") && (computerSelection === "Rock")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("It's a tie, so no points!")
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "It's a tie, so no points!"
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if ((playerSelection === "Paper") && (computerSelection === "Rock")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("You win! Paper beats Rock!")
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "You win! Paper beats Rock!"
         scorePlayer++
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if ((playerSelection === "Scissors") && (computerSelection === "Rock")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("You lose! Rock beats Scissors!")
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "You lose! Rock beats Scissors!"
         scoreComputer++
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if ((playerSelection === "Rock") && (computerSelection === "Scissors")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("You win! Rock beats Scissors!")
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "You win! Rock beats Scissors!"
         scorePlayer++
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if ((playerSelection === "Paper") && (computerSelection === "Scissors")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("You lose! Scissors beat Paper!")
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "You lose! Scissors beat Paper!"
         scoreComputer++
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else if ((playerSelection === "Scissors") && (computerSelection === "Scissors")) {
-        console.log("Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection)
-        console.log("It's a tie, so no points!")
-        console.log("Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer)
+        textLine2.textContent = "Your choice: " + playerSelection + " ; Computer's choice: " + computerSelection
+        textLine3.textContent = "It's a tie, so no points!"
+        textLine4.textContent = "Your score: " + scorePlayer + " ; Computer's score: " + scoreComputer
     } else {
-        console.log("Something went very wrong! Check your input!")
+        textLine3.textContent = "Something went very wrong! Check your input!"
     }
     round++
 }
